@@ -1,0 +1,83 @@
+<odoo>
+    <data>
+        
+        <template id="index"> <!-- Id di ambil dari return render -->
+
+            <t t-call="website.layout">
+                <div class="container-fluid">
+                    <h1 class="text-center mb-4">Sale Orders</h1>
+
+                    <table id="table_so" class="table table-hover">
+                        <thead class="bg-info">
+                            <tr>
+                                <th>Order Number</th>
+                                <th>Order Date</th>
+                                <th>Customer</th>
+                                <th>Sales Person</th>
+                                <th>Total</th>
+                                <th>Invoice Status</th>
+                            </tr>
+                        </thead>
+
+                        <!-- Looping data yang di parsing -->
+                        <tbody>
+                            <tr t-foreach="sale_orders" t-as="so">
+                                <td><span t-field="so.name"/></td>
+                                <td><span t-field='so.confirmation_date' /></td>
+                                <td><span t-field='so.partner_id' /></td>
+                                <td><span t-field='so.user_id' /></td>
+                                <td><span t-field='so.amount_total' /></td>
+                                <td><span t-field='so.invoice_status' /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <!-- Load JQuery DataTable -->
+                    <script type="text/javascript">
+                        $(document).ready(function(){
+                            $("#table_so").DataTable({
+
+                            });
+                        })
+                    </script>
+                </div>
+            </t>
+
+        </template>
+
+
+        <!-- With Ajax -->
+        <template id="index_ajax">
+
+            <t t-call="website.layout">
+                <div class="container-fluid">
+                    <h1 class="text-center mb-4">Sale Orders</h1>
+
+                    <table id="table_so" class="table table-hover">
+                        <thead class="bg-info">
+                            <tr>
+                                <th>Order Number</th>
+                                <th>Order Date</th>
+                                <th>Customer</th>
+                                <th>Sales Person</th>
+                                <th>Total</th>
+                                <th>Invoice Status</th>
+                            </tr>
+                        </thead>
+                    </table>
+
+                    <!-- Load JQuery DataTable -->
+                    <script type="text/javascript">
+                        $(document).ready(function(){
+                            $("#table_so").DataTable({
+                                "ajax": "/vit/load_ajax/"
+                            });
+                        })
+                    </script>
+                </div>
+            </t>
+
+        </template>
+
+    </data>
+</odoo>
