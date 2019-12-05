@@ -5,6 +5,7 @@
       
       <xpath expr="." position="inside">
         <script type="text/javascript" src="/vit_website_so/static/Datatables/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="/vit_website_so/static/Chart.js/Chart.min.js"></script>
         <link rel="stylesheet" href="/vit_website_so/static/Datatables/css/jquery.dataTables.min.css"/>
       </xpath>
       

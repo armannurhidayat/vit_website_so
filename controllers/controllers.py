@@ -40,3 +40,12 @@ class VitWebsiteSo(http.Controller):
 			])
 
 		return json.dumps(result, default=str)
+
+
+	@http.route('/vit/so_chart/', type='http', auth='public', website=True)
+	def index_chart(self, **kw):
+		sale_orders = request.env['sale.order'].search([])
+
+		return request.render("vit_website_so.index_chart", {
+			'sale_orders' : sale_orders # Pasrsing data
+		})
